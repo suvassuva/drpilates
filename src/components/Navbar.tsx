@@ -4,8 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 
 const NAV_ITEMS = [
   { name: "HOME", href: "/" },
@@ -17,7 +16,6 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
@@ -36,11 +34,6 @@ export default function Navbar() {
   if (pathname === "/portal") {
     return null;
   }
-
-  // Close drawer on link click
-  const handleLinkClick = () => {
-    setMobileOpen(false);
-  };
 
   return (
     <>
@@ -97,66 +90,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile Menu Toggle */}
-          <button
-            className="md:hidden p-2 text-foreground z-50 focus:outline-none"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
         </div>
       </header>
-
-      {/* Mobile Drawer Overlay */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-0 z-45 bg-background/95 backdrop-blur-lg md:hidden pt-28 px-6 flex flex-col justify-between pb-12"
-          >
-            <div className="flex flex-col gap-6">
-              {NAV_ITEMS.map((item, idx) => (
-                <motion.div
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: idx * 0.05 }}
-                  key={item.name}
-                >
-                  <Link
-                    href={item.href}
-                    onClick={handleLinkClick}
-                    className="font-display font-semibold text-lg tracking-wider text-foreground hover:text-primary-accent transition-colors"
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="flex flex-col gap-4"
-            >
-              <Link
-                href="/contact"
-                onClick={handleLinkClick}
-                className="w-full text-center py-3 rounded-full bg-primary-accent text-foreground text-sm font-semibold tracking-wider hover:bg-tertiary-accent transition-colors"
-              >
-                Book Assessment
-              </Link>
-              <div className="text-center font-mono text-[10px] tracking-widest text-muted-text">
-                KALYAN NAGAR, BANGALORE
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </>
   );
 }

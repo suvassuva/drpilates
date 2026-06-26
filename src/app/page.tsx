@@ -216,7 +216,7 @@ export default function HomePage() {
           <div className="lg:col-span-5 relative flex justify-center">
             <div className="relative w-80 aspect-[4/5] rounded-xl overflow-hidden border border-white/[0.08] group shadow-2xl">
               <Image
-                src="/images/founder.png"
+                src="/images/govindRaj.jpg"
                 alt="Dr. Govinda Raju S"
                 fill
                 className="object-cover"

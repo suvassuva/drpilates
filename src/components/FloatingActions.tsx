@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { MessageSquareCode, Phone, LayoutGrid, Calendar, TrendingUp, User } from "lucide-react";
+import { MessageSquareCode, Phone, LayoutGrid, Info, Activity } from "lucide-react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
@@ -16,14 +16,14 @@ export default function FloatingActions() {
   useEffect(() => {
     const checkTab = () => {
       if (typeof window !== "undefined") {
-        const searchParams = new URLSearchParams(window.location.search);
-        const tab = searchParams.get("tab");
-        if (pathname === "/portal") {
-          setActiveTab(tab === "profile" ? "profile" : "progress");
-        } else if (pathname === "/contact") {
-          setActiveTab("book");
-        } else if (pathname === "/") {
+        if (pathname === "/") {
           setActiveTab("home");
+        } else if (pathname === "/about") {
+          setActiveTab("about");
+        } else if (pathname === "/services") {
+          setActiveTab("services");
+        } else if (pathname === "/contact") {
+          setActiveTab("contacts");
         } else {
           setActiveTab("");
         }
@@ -31,9 +31,11 @@ export default function FloatingActions() {
     };
 
     checkTab();
-    // Listen to history and hash updates
+    // Listen to history updates
     window.addEventListener("popstate", checkTab);
-    return () => window.removeEventListener("popstate", checkTab);
+    return () => {
+      window.removeEventListener("popstate", checkTab);
+    };
   }, [pathname]);
 
   return (
@@ -79,79 +81,81 @@ export default function FloatingActions() {
       </div>
 
       {/* Mobile-only Sticky App-like Capsule Bottom Navigation Bar */}
-      <div className="md:hidden fixed bottom-4 left-4 right-4 z-45 bg-[#0B0B0B]/95 backdrop-blur-md border border-white/[0.08] rounded-2xl py-2.5 px-6 flex justify-around items-center shadow-2xl">
-        {/* Home Tab */}
-        <Link
-          href="/"
-          className={`flex flex-col items-center gap-1 p-1.5 cursor-pointer relative transition-colors duration-300 ${
-            activeTab === "home" ? "text-primary-accent" : "text-muted-text hover:text-foreground"
-          }`}
-        >
-          {activeTab === "home" && (
-            <motion.span
-              layoutId="mobileActiveIndicator"
-              className="absolute -top-[10px] left-1/2 -translate-x-1/2 w-6 h-0.5 bg-primary-accent rounded-full"
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
-          )}
-          <LayoutGrid size={18} />
-          <span className="font-mono text-[8px] font-bold tracking-widest uppercase">Home</span>
-        </Link>
+      {pathname !== "/portal" && (
+        <div className="md:hidden fixed bottom-4 left-4 right-4 z-45 bg-[#0B0B0B]/95 backdrop-blur-md border border-white/[0.08] rounded-2xl py-2.5 px-6 flex justify-around items-center shadow-2xl">
+          {/* Home Tab */}
+          <Link
+            href="/"
+            className={`flex flex-col items-center gap-1 p-1.5 cursor-pointer relative transition-colors duration-300 ${
+              activeTab === "home" ? "text-primary-accent" : "text-muted-text hover:text-foreground"
+            }`}
+          >
+            {activeTab === "home" && (
+              <motion.span
+                layoutId="mobileActiveIndicator"
+                className="absolute -top-[10px] left-1/2 -translate-x-1/2 w-6 h-0.5 bg-primary-accent rounded-full"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+            )}
+            <LayoutGrid size={18} />
+            <span className="font-mono text-[8px] font-bold tracking-widest uppercase">Home</span>
+          </Link>
 
-        {/* Book Tab */}
-        <Link
-          href="/contact"
-          className={`flex flex-col items-center gap-1 p-1.5 cursor-pointer relative transition-colors duration-300 ${
-            activeTab === "book" ? "text-primary-accent" : "text-muted-text hover:text-foreground"
-          }`}
-        >
-          {activeTab === "book" && (
-            <motion.span
-              layoutId="mobileActiveIndicator"
-              className="absolute -top-[10px] left-1/2 -translate-x-1/2 w-6 h-0.5 bg-primary-accent rounded-full"
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
-          )}
-          <Calendar size={18} />
-          <span className="font-mono text-[8px] font-bold tracking-widest uppercase">Book</span>
-        </Link>
+          {/* About Tab */}
+          <Link
+            href="/about"
+            className={`flex flex-col items-center gap-1 p-1.5 cursor-pointer relative transition-colors duration-300 ${
+              activeTab === "about" ? "text-primary-accent" : "text-muted-text hover:text-foreground"
+            }`}
+          >
+            {activeTab === "about" && (
+              <motion.span
+                layoutId="mobileActiveIndicator"
+                className="absolute -top-[10px] left-1/2 -translate-x-1/2 w-6 h-0.5 bg-primary-accent rounded-full"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+            )}
+            <Info size={18} />
+            <span className="font-mono text-[8px] font-bold tracking-widest uppercase">About</span>
+          </Link>
 
-        {/* Progress Tab */}
-        <Link
-          href="/portal"
-          className={`flex flex-col items-center gap-1 p-1.5 cursor-pointer relative transition-colors duration-300 ${
-            activeTab === "progress" ? "text-primary-accent" : "text-muted-text hover:text-foreground"
-          }`}
-        >
-          {activeTab === "progress" && (
-            <motion.span
-              layoutId="mobileActiveIndicator"
-              className="absolute -top-[10px] left-1/2 -translate-x-1/2 w-6 h-0.5 bg-primary-accent rounded-full"
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
-          )}
-          <TrendingUp size={18} />
-          <span className="font-mono text-[8px] font-bold tracking-widest uppercase">Progress</span>
-        </Link>
+          {/* Services Tab */}
+          <Link
+            href="/services"
+            className={`flex flex-col items-center gap-1 p-1.5 cursor-pointer relative transition-colors duration-300 ${
+              activeTab === "services" ? "text-primary-accent" : "text-muted-text hover:text-foreground"
+            }`}
+          >
+            {activeTab === "services" && (
+              <motion.span
+                layoutId="mobileActiveIndicator"
+                className="absolute -top-[10px] left-1/2 -translate-x-1/2 w-6 h-0.5 bg-primary-accent rounded-full"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+            )}
+            <Activity size={18} />
+            <span className="font-mono text-[8px] font-bold tracking-widest uppercase">Services</span>
+          </Link>
 
-        {/* Profile Tab */}
-        <Link
-          href="/portal?tab=profile"
-          className={`flex flex-col items-center gap-1 p-1.5 cursor-pointer relative transition-colors duration-300 ${
-            activeTab === "profile" ? "text-primary-accent" : "text-muted-text hover:text-foreground"
-          }`}
-        >
-          {activeTab === "profile" && (
-            <motion.span
-              layoutId="mobileActiveIndicator"
-              className="absolute -top-[10px] left-1/2 -translate-x-1/2 w-6 h-0.5 bg-primary-accent rounded-full"
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            />
-          )}
-          <User size={18} />
-          <span className="font-mono text-[8px] font-bold tracking-widest uppercase">Profile</span>
-        </Link>
-      </div>
+          {/* Contacts Tab */}
+          <Link
+            href="/contact"
+            className={`flex flex-col items-center gap-1 p-1.5 cursor-pointer relative transition-colors duration-300 ${
+              activeTab === "contacts" ? "text-primary-accent" : "text-muted-text hover:text-foreground"
+            }`}
+          >
+            {activeTab === "contacts" && (
+              <motion.span
+                layoutId="mobileActiveIndicator"
+                className="absolute -top-[10px] left-1/2 -translate-x-1/2 w-6 h-0.5 bg-primary-accent rounded-full"
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              />
+            )}
+            <Phone size={18} />
+            <span className="font-mono text-[8px] font-bold tracking-widest uppercase">Contacts</span>
+          </Link>
+        </div>
+      )}
     </>
   );
 }

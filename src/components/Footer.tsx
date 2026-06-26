@@ -103,7 +103,7 @@ export default function Footer() {
               </Link>
             </li>
             <li>
-              <Link href="/contact" className="text-muted-text hover:text-foreground text-sm font-sans transition-colors">
+              <Link href="/portal" className="text-muted-text hover:text-foreground text-sm font-sans transition-colors">
                 Client Portal
               </Link>
             </li>

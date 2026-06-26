@@ -45,7 +45,7 @@ export default function AboutPage() {
               
               <div className="relative w-full h-full rounded-xl overflow-hidden bg-background">
                 <Image
-                  src="/images/founder.png"
+                  src="/images/govindRaj.jpg"
                   alt="Dr. Govinda Raju S Portrait"
                   fill
                   className="object-cover group-hover:scale-102 transition-transform duration-700"

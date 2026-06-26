@@ -16,7 +16,8 @@ import {
   Award,
   ChevronRight,
   Sparkles,
-  ArrowLeft
+  ArrowLeft,
+  User
 } from "lucide-react";
 import GlassCard from "@/components/GlassCard";
 
@@ -29,10 +30,10 @@ function PortalDashboard() {
   const [bellActive, setBellActive] = useState(true);
 
   return (
-    <div className="min-h-screen bg-[#0B0B0B] text-foreground font-sans relative pb-28">
+    <div className="min-h-screen bg-[#0B0B0B] text-foreground font-sans relative pb-16">
       {/* Top Application-like Header */}
       <header className="sticky top-0 z-40 bg-[#0B0B0B]/85 backdrop-blur-md border-b border-white/[0.05] py-4 px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
+        <Link href={activeTab === "home" ? "/" : "/portal"} className="flex items-center gap-2 group">
           <ArrowLeft size={16} className="text-muted-text group-hover:text-primary-accent transition-colors" />
           <Image
             src="/images/dr pilates.png"
@@ -43,16 +44,25 @@ function PortalDashboard() {
             priority
           />
         </Link>
-        <button 
-          onClick={() => setBellActive(false)}
-          className="relative p-2 rounded-full hover:bg-white/5 transition-colors cursor-pointer"
-          aria-label="Notifications"
-        >
-          <Bell size={18} className="text-foreground" />
-          {bellActive && (
-            <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-accent animate-pulse" />
-          )}
-        </button>
+        <div className="flex items-center gap-1.5">
+          <button 
+            onClick={() => router.push(activeTab === "profile" ? "/portal" : "/portal?tab=profile")}
+            className="relative p-2 rounded-full hover:bg-white/5 transition-colors cursor-pointer text-foreground"
+            aria-label="Profile"
+          >
+            <User size={18} className={activeTab === "profile" ? "text-primary-accent" : ""} />
+          </button>
+          <button 
+            onClick={() => setBellActive(false)}
+            className="relative p-2 rounded-full hover:bg-white/5 transition-colors cursor-pointer"
+            aria-label="Notifications"
+          >
+            <Bell size={18} className="text-foreground" />
+            {bellActive && (
+              <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-accent animate-pulse" />
+            )}
+          </button>
+        </div>
       </header>
 
       {/* Main Content Area */}
