@@ -14,8 +14,6 @@ import {
   Heart, 
   Droplet, 
   Award,
-  User,
-  Home as HomeIcon,
   ChevronRight,
   Sparkles,
   ArrowLeft
@@ -249,7 +247,7 @@ function PortalDashboard() {
                 </div>
               </div>
               <p className="text-[11px] text-muted-text italic font-sans leading-relaxed border-t border-white/[0.03] pt-3">
-                "Your clinical results show a 6% improvement in spinal alignment since last month."
+                &ldquo;Your clinical results show a 6% improvement in spinal alignment since last month.&rdquo;
               </p>
             </GlassCard>
 
