@@ -20,6 +20,11 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
 
+  // Hide global Navbar on the Wellness Portal page to prevent header overlap
+  if (pathname === "/portal") {
+    return null;
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
