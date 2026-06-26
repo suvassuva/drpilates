@@ -16,6 +16,17 @@ export default function GlassCard({
   hoverEffect = true,
   onClick,
 }: GlassCardProps) {
+  const hasPadding = className.split(" ").some(c => 
+    c.startsWith("p-") || 
+    c.startsWith("px-") || 
+    c.startsWith("py-") || 
+    c.startsWith("pt-") || 
+    c.startsWith("pb-") || 
+    c.startsWith("pl-") || 
+    c.startsWith("pr-")
+  );
+  const paddingClass = hasPadding ? "" : "p-6";
+
   return (
     <motion.div
       onClick={onClick}
@@ -23,7 +34,7 @@ export default function GlassCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className={`glass-panel rounded-xl p-6 relative overflow-hidden group ${
+      className={`glass-panel rounded-xl ${paddingClass} relative overflow-hidden group ${
         hoverEffect ? "glass-panel-hover" : ""
       } ${className}`}
     >

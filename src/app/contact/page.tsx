@@ -35,8 +35,8 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* Left Side: Contact Form */}
         <div className="lg:col-span-7">
-          <GlassCard hoverEffect={false} className="h-full border-white/[0.05]">
-            <form action={formAction} className="flex flex-col gap-6">
+          <GlassCard hoverEffect={false} className="p-5 sm:p-6 h-full border-white/[0.05]">
+            <form action={formAction} className="flex flex-col gap-4 sm:gap-6">
               {/* Form Response Banner */}
               {state.success && (
                 <div className="p-4 rounded bg-emerald-950/40 border border-emerald-500/30 flex items-start gap-3">
@@ -70,7 +70,7 @@ export default function ContactPage() {
               </div>
 
               {/* Phone & Email Row */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label htmlFor="phone" className="block font-mono text-[10px] tracking-widest uppercase text-foreground/80 mb-2 font-bold">
                     Phone Number
@@ -136,7 +136,7 @@ export default function ContactPage() {
                 <textarea
                   id="message"
                   name="message"
-                  rows={5}
+                  rows={4}
                   placeholder="Tell us about your physical goals or clinical requirements..."
                   className="custom-input resize-none"
                   disabled={isPending}
