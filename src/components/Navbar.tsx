@@ -20,11 +20,6 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
 
-  // Hide global Navbar on the Wellness Portal page to prevent header overlap
-  if (pathname === "/portal") {
-    return null;
-  }
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 20) {
@@ -36,6 +31,11 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Hide global Navbar on the Wellness Portal page to prevent header overlap
+  if (pathname === "/portal") {
+    return null;
+  }
 
   // Close drawer on link click
   const handleLinkClick = () => {
