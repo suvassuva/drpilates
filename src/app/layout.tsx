@@ -54,6 +54,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://drpilates.in",
   },
+  icons: {
+    icon: "/drpilates.png",
+    shortcut: "/drpilates.png",
+    apple: "/drpilates.png",
+  },
 };
 
 export default function RootLayout({
