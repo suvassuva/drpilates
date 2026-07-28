@@ -10,7 +10,6 @@ const NAV_ITEMS = [
   { name: "HOME", href: "/" },
   { name: "ABOUT", href: "/about" },
   { name: "SERVICES", href: "/services" },
-  { name: "PORTAL", href: "/portal" },
   { name: "CONTACT", href: "/contact" },
 ];
 
@@ -29,11 +28,6 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  // Hide global Navbar on the Wellness Portal page to prevent header overlap
-  if (pathname === "/portal") {
-    return null;
-  }
 
   return (
     <>

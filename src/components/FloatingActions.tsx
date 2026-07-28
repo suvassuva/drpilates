@@ -81,9 +81,8 @@ export default function FloatingActions() {
       </div>
 
       {/* Mobile-only Sticky App-like Capsule Bottom Navigation Bar */}
-      {pathname !== "/portal" && (
-        <div className="md:hidden fixed bottom-4 left-4 right-4 z-45 bg-[#0B0B0B]/95 backdrop-blur-md border border-white/[0.08] rounded-2xl py-2.5 px-6 flex justify-around items-center shadow-2xl">
-          {/* Home Tab */}
+      <div className="md:hidden fixed bottom-4 left-4 right-4 z-45 bg-[#0B0B0B]/95 backdrop-blur-md border border-white/[0.08] rounded-2xl py-2.5 px-6 flex justify-around items-center shadow-2xl">
+        {/* Home Tab */}
           <Link
             href="/"
             className={`flex flex-col items-center gap-1 p-1.5 cursor-pointer relative transition-colors duration-300 ${
@@ -155,7 +154,6 @@ export default function FloatingActions() {
             <span className="font-mono text-[8px] font-bold tracking-widest uppercase">Contacts</span>
           </Link>
         </div>
-      )}
     </>
   );
 }
