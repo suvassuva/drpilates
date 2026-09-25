@@ -386,9 +386,6 @@ export default function HomePage() {
               <span className="font-mono text-[10px] text-primary-accent tracking-widest block mb-3 uppercase font-semibold">
                 01 / CLINICAL AUDIT
               </span>
-              <h4 className="font-display font-bold text-sm text-foreground mb-2">
-                Doctor-Led Assessment
-              </h4>
               <p className="text-xs text-muted-text leading-relaxed font-sans">
                 Every journey begins with a complete musculoskeletal and joint audit to map your physical structure.
               </p>
@@ -398,9 +395,6 @@ export default function HomePage() {
               <span className="font-mono text-[10px] text-primary-accent tracking-widest block mb-3 uppercase font-semibold">
                 02 / PREMIUM SETUP
               </span>
-              <h4 className="font-display font-bold text-sm text-foreground mb-2">
-                Luxury Environment
-              </h4>
               <p className="text-xs text-muted-text leading-relaxed font-sans">
                 A state-of-the-art wellness space featuring private training rooms and upscale client amenities.
               </p>
@@ -410,9 +404,6 @@ export default function HomePage() {
               <span className="font-mono text-[10px] text-primary-accent tracking-widest block mb-3 uppercase font-semibold">
                 03 / PERSONAL ATTENTION
               </span>
-              <h4 className="font-display font-bold text-sm text-foreground mb-2">
-                Private & Semi-Private
-              </h4>
               <p className="text-xs text-muted-text leading-relaxed font-sans">
                 Focused attention with 1:1 or micro-group configurations to ensure absolute precision and safety.
               </p>
@@ -422,9 +413,6 @@ export default function HomePage() {
               <span className="font-mono text-[10px] text-primary-accent tracking-widest block mb-3 uppercase font-semibold">
                 04 / ACCREDITED CARE
               </span>
-              <h4 className="font-display font-bold text-sm text-foreground mb-2">
-                Clinical Trust
-              </h4>
               <p className="text-xs text-muted-text leading-relaxed font-sans">
                 Bridging the gap between physiotherapy, joint alignment, and physical performance training.
               </p>
@@ -434,11 +422,8 @@ export default function HomePage() {
               <span className="font-mono text-[10px] text-primary-accent tracking-widest block mb-3 uppercase font-semibold">
                 05 / STATE OF THE ART
               </span>
-              <h4 className="font-display font-bold text-sm text-foreground mb-2">
-                Advanced Equipment
-              </h4>
               <p className="text-xs text-muted-text leading-relaxed font-sans">
-                Equipped with professional-grade Merrithew V2 Max Plus reformers and biomechanical apparatus.
+                Equipped with professional-grade reformers and biomechanical apparatus.
               </p>
             </GlassCard>
 
@@ -446,9 +431,6 @@ export default function HomePage() {
               <span className="font-mono text-[10px] text-primary-accent tracking-widest block mb-3 uppercase font-semibold">
                 06 / CLIENT FIRST
               </span>
-              <h4 className="font-display font-bold text-sm text-foreground mb-2">
-                Flexible Scheduling
-              </h4>
               <p className="text-xs text-muted-text leading-relaxed font-sans">
                 Convenient morning and evening booking slots, Monday through Saturday, to accommodate busy lifestyles.
               </p>
